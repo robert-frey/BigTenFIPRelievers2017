@@ -1,0 +1,18 @@
+# BigTenFIPRelievers2017
+#Measured by class, this graph shows the Fielding Independent Pitching of relievers in the Big Ten
+#(min. 25 IP), in 2017. Compares two of the three components of FIP, walks and strikeouts.
+
+
+library(ggpubr)
+library(ggsci)
+
+
+B10fip <- read.csv("Big Ten FIP relievers.csv")
+
+
+ggscatter(data = B10fip, x = "so.", y = "fip", label = "Player..", 
+          facet.by = "Class", color = "bb.", 
+          title = "Big 10 Relievers: FIP by Class 2017(min. 25 IP)", 
+          xlab = "Strikeouts", ylab = "Fielding Independent Pitching", 
+          conf.int = TRUE, add = "loess")
+          
